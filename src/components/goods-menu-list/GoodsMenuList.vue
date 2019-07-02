@@ -46,6 +46,7 @@ export default {
   aside
     flex: 0 0 px2rem(160)
     width: px2rem(160)
+    background-color: $color-background-ssss
     .menu-wrapper
       height: 100%
       overflow: hidden
@@ -53,7 +54,6 @@ export default {
         padding: 0 px2rem(24)
         width: px2rem(160)
         height: px2rem(108)
-        background-color: $color-background-ssss
         box-sizing: border-box;
         display: table
         .text

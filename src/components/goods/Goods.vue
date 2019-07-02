@@ -1,17 +1,15 @@
 <template>
-  <section class="goods-box clearfix">
-    <goods-menu-list :goods="goods" ref="goodsMenuList"></goods-menu-list>
+  <section class="goods-section clearfix">
     <goods-list :goods="goods" ref="goodsList"></goods-list>
   </section>
 </template>
 
 <script>
-import GoodsMenuList from 'components/goods-menu-list/GoodsMenuList'
 import GoodsList from 'components/goods-list/GoodsList'
 import { getGoods } from 'api'
 
 export default {
-  name: 'goods-box',
+  name: 'goods-section',
   data() {
     return {
       goods: []
@@ -28,7 +26,6 @@ export default {
     }
   },
   components: {
-    GoodsMenuList,
     GoodsList
   }
 }
@@ -37,11 +34,4 @@ export default {
 <style scoped lang="stylus" rel="stylesheet/stylus">
   @import "~common/stylus/variable"
   @import "~common/stylus/mixin"
-
-.goods-box
-  display: flex
-  position: fixed
-  top: px2rem(348)
-  bottom: px2rem(96)
-  width: 100%
 </style>
