@@ -1,19 +1,15 @@
 <template>
-  <section class="box">
-    
+  <section class="seller-box">
+    d
   </section>
 </template>
 
 <script>
-import MyHeader from 'components/header/Header'
 
 export default {
-  name: 'box',
+  name: 'seller-box',
   data() {
     return {}
-  },
-  components: {
-    MyHeader
   }
 }
 </script>

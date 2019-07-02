@@ -39,8 +39,10 @@
 
 <script>
 import Star from 'base/star/Star'
+import { classMap } from 'common/js/mixin'
 export default {
   name: 'popover-box',
+  mixins: [ classMap ],
   props: {
     seller: {
       type: Object,
@@ -51,9 +53,6 @@ export default {
     return {
       showFlag: false
     }
-  },
-  created() {
-    this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee']
   },
   methods: {
     show() {
