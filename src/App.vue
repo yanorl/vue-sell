@@ -1,32 +1,26 @@
 <template>
   <div id="app">
-    <my-header :seller = seller></my-header>
+    <my-header></my-header>
+    <tab></tab>
+    <keep-alive>
+      <!-- 切换页面不重新获取ajax -->
+       <router-view/>
+     </keep-alive>
   </div>
 </template>
 
 <script>
 import MyHeader from 'components/header/Header'
-import { getSeller } from 'api'
+import Tab from 'components/tab/Tab'
 
 export default {
   name: 'App',
   data() {
-    return {
-      seller: {}
-    }
+    return {}
   },
   components: {
-    MyHeader
-  },
-  created() {
-    this._getSeller()
-  },
-  methods: {
-    _getSeller() {
-      getSeller().then((res) => {
-        this.seller = res
-      })
-    }
+    MyHeader,
+    Tab
   }
 }
 </script>

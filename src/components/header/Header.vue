@@ -2,7 +2,7 @@
   <header class="header-box">
     <section class="content-wrapper clearfix">
       <figure class="avatar">
-        <img :src="seller.avatar" alt="seller.name" width="100%">
+        <img :src="seller.avatar" alt="seller.name">
       </figure>
       <section class="content">
         <section class="title">
@@ -34,23 +34,28 @@
 </template>
 
 <script>
+import { getSeller } from 'api'
 import Popover from 'base/popover/Popover'
+
 export default {
   name: 'header-box',
   data() {
     return {
+      seller: {}
     }
   },
-  props: {
-    seller: {
-      type: Object,
-      default: () => {}
-    }
+  created() {
+    this._getSeller()
   },
   components: {
     Popover
   },
   methods: {
+    _getSeller() {
+      getSeller().then((res) => {
+        this.seller = res
+      })
+    },
     showPop() {
       this.$refs.popover.show()
     }
@@ -66,6 +71,7 @@ export default {
   position: relative;
   background-color: $color-background-ss
   color: #fff
+  overflow: hidden
   .content-wrapper
     position: relative
     box-sizing: border-box;
@@ -77,6 +83,9 @@ export default {
       height: px2rem(128)
       border-radius: px2rem(4)
       overflow: hidden
+      img
+        width: px2rem(128)
+        height: px2rem(128)
     .content
       float: left
       margin: px2rem(4) 0 px2rem(4) px2rem(32)
