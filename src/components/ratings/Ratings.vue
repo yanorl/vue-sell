@@ -1,19 +1,15 @@
 <template>
-  <section class="box">
-    
+  <section class="rantings-box">
+    r
   </section>
 </template>
 
 <script>
-import MyHeader from 'components/header/Header'
 
 export default {
-  name: 'box',
+  name: 'rantings-box',
   data() {
     return {}
-  },
-  components: {
-    MyHeader
   }
 }
 </script>
