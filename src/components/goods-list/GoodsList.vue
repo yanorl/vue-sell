@@ -1,5 +1,5 @@
 <template>
-  <section class="goods-wrapper clearfix">
+  <section class="goods-wrapper">
     <aside>
       <scroll ref="menuWrapper" class="menu-wrapper" :data="goods" :listenScroll="listenScroll" :probeType="probeType">
         <ul>
@@ -33,6 +33,9 @@
                       ￥<span>{{item.oldPrice}}</span>
                     </span>
                   </section>
+                  <section class="cart-control-wrapper">
+                    <cart-control :good="item"></cart-control>
+                  </section>
                 </section>
               </li>
             </ul>
@@ -48,6 +51,7 @@
 
 <script>
 import Scroll from 'base/scroll/Scroll'
+import CartControl from 'base/cart-control/CartControl'
 import { classMap } from 'common/js/mixin'
 
 export default {
@@ -93,7 +97,7 @@ export default {
       this.currentIndex = listHeight.length - 2
       console.log(this.currentIndex)
     },
-    diff (newVal) {
+    diff(newVal) {
       const TITLE_HEIGHT = this.$refs.listTitle[0].clientHeight
       let fixedTop = (newVal > 0 && newVal < TITLE_HEIGHT) ? newVal - TITLE_HEIGHT : 0
       if (this.fixedTop === fixedTop) {
@@ -117,7 +121,8 @@ export default {
     this.probeType = 3
   },
   components: {
-    Scroll
+    Scroll,
+    CartControl
   },
   methods: {
     selectItem(index, event) {
@@ -205,6 +210,7 @@ export default {
     flex: 1
     position: relative
     overflow: hidden
+    width: 100%
     .goods-box
       height: 100%;
       overflow: hidden;
@@ -234,6 +240,8 @@ export default {
         .content-wrapper
           padding-top: px2rem(4)
           color: rgb(147,153,159)
+          width: 100%
+          position: relative
           .name
             font-size: px2rem(28)
             color: $color-background
@@ -254,6 +262,10 @@ export default {
               color: $color-red
               span
                 font-size: px2rem(28)
+          .cart-control-wrapper
+            position: absolute
+            right: 0
+            bottom: px2rem(-12)
     .list-fixed
       position: absolute
       top: 0
