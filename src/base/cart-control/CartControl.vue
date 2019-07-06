@@ -13,7 +13,7 @@
 </template>
 
 <script>
-
+import Bus from 'common/js/bus'
 export default {
   name: 'cart-Control-box',
   props: {
@@ -26,13 +26,14 @@ export default {
     return {}
   },
   methods: {
-    addCart() {
+    addCart(event) {
       if (!this.good.count) {
         this.$set(this.good, 'count', 1)
         // this.good.count = 1
       } else {
         this.good.count++
       }
+      Bus.$emit('addEl', event.target)
     },
     decreaseCart() {
       if (this.good.count) {

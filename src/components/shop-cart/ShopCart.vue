@@ -17,10 +17,12 @@
         </section>
       </section>
     </section>
+    <ball></ball>
   </section>
 </template>
 
 <script>
+import Ball from 'base/ball/Ball'
 export default {
   name: 'shop-cart--box',
   props: {
@@ -72,6 +74,9 @@ export default {
         return 'enough'
       }
     }
+  },
+  components: {
+    Ball
   }
 }
 </script>

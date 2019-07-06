@@ -29,7 +29,7 @@ export default {
   computed: {
     selectGoods() {
       let good = []
-      console.log(this.goods)
+      // console.log(this.goods.foods.count)
       this.goods.forEach((item) => {
         item.foods.forEach((list) => {
           if (list.count) {
