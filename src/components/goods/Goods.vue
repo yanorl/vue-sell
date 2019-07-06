@@ -28,16 +28,16 @@ export default {
   },
   computed: {
     selectGoods() {
-      let good = []
+      let food = []
       // console.log(this.goods.foods.count)
       this.goods.forEach((item) => {
         item.foods.forEach((list) => {
           if (list.count) {
-            good.push(list)
+            food.push(list)
           }
         })
       })
-      return good
+      return food
     }
   },
   methods: {

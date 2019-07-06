@@ -34,7 +34,7 @@
                     </span>
                   </section>
                   <section class="cart-control-wrapper">
-                    <cart-control :good="item"></cart-control>
+                    <cart-control :food="item"></cart-control>
                   </section>
                 </section>
               </li>
@@ -265,7 +265,7 @@ export default {
           .cart-control-wrapper
             position: absolute
             right: 0
-            bottom: px2rem(-12)
+            bottom: px2rem(-15)
     .list-fixed
       position: absolute
       top: 0

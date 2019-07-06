@@ -1,6 +1,6 @@
 <template>
   <section class="shop-cart-box">
-    <section class="content-wrapper">
+    <section class="content-wrapper" @click.stop="toggleList">
       <section class="content-left">
         <section class="logo-wrapper">
           <section class="logo" :class="{'highlight': totalCount > 0}">
@@ -11,20 +11,23 @@
         <section class="price" :class="{'highlight': totalPrice > 0}">¥{{totalPrice}}</section>
         <section class="desc">另需配送费¥{{deliveryPrice}}元</section>
       </section>
-      <section class="content-right">
+      <section class="content-right" @click="pay">
         <section class="pay" :class="payClass">
           {{payDesc}}
         </section>
       </section>
     </section>
     <ball></ball>
+    <shop-cart-details ref="shopCartDetails" @parentFold="changeFold" :fold="fold" :selectGoods="selectGoods" :totalCount="totalCount"></shop-cart-details>
   </section>
 </template>
 
 <script>
 import Ball from 'base/ball/Ball'
+import ShopCartDetails from 'components/shop-cart-details/ShopCartDetails'
+
 export default {
-  name: 'shop-cart--box',
+  name: 'shop-cart-box',
   props: {
     selectGoods: {
       type: Array,
@@ -40,7 +43,9 @@ export default {
     }
   },
   data() {
-    return {}
+    return {
+      fold: true // 购物车详情页折叠状态,true表示折叠
+    }
   },
   computed: {
     totalPrice() {
@@ -76,7 +81,25 @@ export default {
     }
   },
   components: {
-    Ball
+    Ball,
+    ShopCartDetails
+  },
+  methods: {
+    toggleList() {
+      if (!this.totalCount) {
+        return
+      }
+      this.fold = !this.fold
+    },
+    changeFold() {
+      this.fold = true
+    },
+    pay() {
+      if (this.totalPrice < this.minPrice) {
+        return
+      }
+      window.alert(`支付${this.totalPrice}元`)
+    }
   }
 }
 </script>
