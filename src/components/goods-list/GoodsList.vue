@@ -18,7 +18,7 @@
           <li class="list-group" v-for="(group, index) in goods" :key="index" ref="listGroup">
             <h1 class="list-group-title" ref="listTitle">{{group.name}}</h1>
             <ul>
-              <li v-for="item in group.foods" :key="item.name" class="list-group-item">
+              <li @click="selectFood(item)" v-for="item in group.foods" :key="item.name" class="list-group-item">
                 <figure class="picture">
                   <img :src="item.icon" :alt="item.name">
                 </figure>
@@ -34,7 +34,7 @@
                     </span>
                   </section>
                   <section class="cart-control-wrapper">
-                    <cart-control :good="item"></cart-control>
+                    <cart-control :food="item"></cart-control>
                   </section>
                 </section>
               </li>
@@ -46,12 +46,14 @@
         <h1 class="fixed-title">{{fixedTittle}}</h1>
       </section>
     </main>
+    <food :food="selectedFood" ref="food"></food>
   </section>
 </template>
 
 <script>
 import Scroll from 'base/scroll/Scroll'
 import CartControl from 'base/cart-control/CartControl'
+import Food from 'components/food/Food'
 import { classMap } from 'common/js/mixin'
 
 export default {
@@ -67,7 +69,8 @@ export default {
     return {
       currentIndex: 0,
       scrollY: -1,
-      diff: -1
+      diff: -1,
+      selectedFood: {}
     }
   },
   watch: {
@@ -122,7 +125,8 @@ export default {
   },
   components: {
     Scroll,
-    CartControl
+    CartControl,
+    Food
   },
   methods: {
     selectItem(index, event) {
@@ -144,6 +148,10 @@ export default {
         height += list[i].clientHeight
         this.listHeight.push(height)
       }
+    },
+    selectFood(item) {
+      this.selectedFood = item
+      this.$refs.food.show()
     }
   }
 }
@@ -265,7 +273,7 @@ export default {
           .cart-control-wrapper
             position: absolute
             right: 0
-            bottom: px2rem(-12)
+            bottom: px2rem(-15)
     .list-fixed
       position: absolute
       top: 0

@@ -1,12 +1,12 @@
 <template>
   <section class="cart-Control-box">
     <transition name="move">
-      <section class="cart-decrease" v-show="good.count > 0" @click="decreaseCart">
+      <section class="cart-decrease" v-show="food.count > 0" @click.stop="decreaseCart">
         <span class="inner icon-remove_circle_outline"></span>
       </section>
     </transition>
-    <section class="cart-count" v-show="good.count > 0">{{good.count}}</section>
-    <section class="cart-add" @click="addCart">
+    <section class="cart-count" v-show="food.count > 0">{{food.count}}</section>
+    <section class="cart-add" @click.stop="addCart">
       <span class="inner icon-add_circle"></span>
     </section>
   </section>
@@ -17,7 +17,7 @@ import Bus from 'common/js/bus'
 export default {
   name: 'cart-Control-box',
   props: {
-    good: {
+    food: {
       type: Object,
       default: () => {}
     }
@@ -27,17 +27,17 @@ export default {
   },
   methods: {
     addCart(event) {
-      if (!this.good.count) {
-        this.$set(this.good, 'count', 1)
-        // this.good.count = 1
+      if (!this.food.count) {
+        this.$set(this.food, 'count', 1)
+        // this.food.count = 1
       } else {
-        this.good.count++
+        this.food.count++
       }
       Bus.$emit('addEl', event.target)
     },
     decreaseCart() {
-      if (this.good.count) {
-        this.good.count--
+      if (this.food.count) {
+        this.food.count--
       }
     }
   }
