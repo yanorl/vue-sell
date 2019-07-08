@@ -90,6 +90,7 @@ export default {
   bottom: px2rem(45)
   width: px2rem(32)
   height: px2rem(32)
+  z-index: -1
   .ball
     position: fixed
     left: px2rem(75)
