@@ -11,7 +11,7 @@
         <section class="price" :class="{'highlight': totalPrice > 0}">¥{{totalPrice}}</section>
         <section class="desc">另需配送费¥{{deliveryPrice}}元</section>
       </section>
-      <section class="content-right" @click="pay">
+      <section class="content-right" @click.stop.prevent="pay">
         <section class="pay" :class="payClass">
           {{payDesc}}
         </section>
