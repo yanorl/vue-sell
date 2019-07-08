@@ -57,6 +57,7 @@ export default {
     align-items: center
     justify-content: center
     .star-item
+      display: inline-block
       background-repeat: no-repeat
     &.star-48
       .star-item
@@ -89,9 +90,9 @@ export default {
     &.star-24
       .star-item
         width: px2rem(20)
-        height: px2rem(40)
+        height: px2rem(20)
         margin-right: px2rem(6)
-        background-size: px2rem(40) px2rem(40)
+        background-size: px2rem(20) px2rem(20)
         &:last-child
           margin-right: 0
         &.on
