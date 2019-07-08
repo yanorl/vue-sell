@@ -64,18 +64,18 @@
 </template>
 
 <script>
-import moment from 'moment'
 import CartControl from 'base/cart-control/CartControl'
 import Split from 'base/split/Split'
 import RatingSelect from 'base/rating-select/RatingSelect'
 import Bus from 'common/js/bus'
-// import { formatDates } from 'common/js/date'
 import Scroll from 'base/scroll/Scroll'
+import ratingMixin from 'common/mixins/ratingMixin'
 
 const ALL = 2
 
 export default {
   name: 'food-box',
+  mixins: [ratingMixin],
   props: {
     food: {
       type: Object,
@@ -85,8 +85,6 @@ export default {
   data() {
     return {
       showFlag: false,
-      selectType: ALL,
-      onlyContent: true,
       desc: {
         all: '全部',
         positive: '推荐',
@@ -106,22 +104,6 @@ export default {
     addFirst(event) {
       this.$set(this.food, 'count', 1)
       Bus.$emit('addEl', event.target)
-    },
-    controlType(type) {
-      this.selectType = type
-    },
-    controlContent() {
-      this.onlyContent = !this.onlyContent
-    },
-    needShow(type, text) {
-      if (this.onlyContent && !text) {
-        return false
-      }
-      if (this.selectType === ALL) {
-        return true
-      } else {
-        return type === this.selectType
-      }
     }
   },
   components: {
@@ -129,13 +111,6 @@ export default {
     Split,
     Scroll,
     RatingSelect
-  },
-  filters: {
-    formatDate(time) {
-      return moment(time).format('YYYY-MM-DD hh:mm')
-      // let date = new Date(time)
-      // return formatDates(date, 'yyyy-MM-dd hh:mm')
-    }
   }
 }
 </script>

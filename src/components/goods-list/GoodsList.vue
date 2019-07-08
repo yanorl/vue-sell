@@ -54,11 +54,11 @@
 import Scroll from 'base/scroll/Scroll'
 import CartControl from 'base/cart-control/CartControl'
 import Food from 'components/food/Food'
-import { classMap } from 'common/js/mixin'
+import classMapMixin from 'common/mixins/classMapMixin'
 
 export default {
   name: 'goods-box',
-  mixins: [classMap],
+  mixins: [classMapMixin],
   props: {
     goods: {
       type: Array,
