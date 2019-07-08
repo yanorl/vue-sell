@@ -39,10 +39,11 @@
 
 <script>
 import Star from 'base/star/Star'
-import { classMap } from 'common/js/mixin'
+import classMapMixin from 'common/mixins/classMapMixin'
+
 export default {
   name: 'popover-box',
-  mixins: [ classMap ],
+  mixins: [ classMapMixin ],
   props: {
     seller: {
       type: Object,
