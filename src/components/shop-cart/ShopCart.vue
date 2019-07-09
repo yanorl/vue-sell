@@ -167,7 +167,7 @@ export default {
           margin-top: px2rem(24)
           line-height: px2rem(48)
           padding-right: px2rem(24)
-          border-right: px2rem(2) solid rgba(255,255,255,0.1)
+          border-right: px2rem(1) solid rgba(255,255,255,0.1)
           font-size: px2rem(32)
           font-weight: 700
           &.highlight
