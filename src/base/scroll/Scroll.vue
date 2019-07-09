@@ -25,6 +25,10 @@ export default {
     listenScroll: {
       type: Boolean,
       default: false
+    },
+    scrollX: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -42,8 +46,10 @@ export default {
       }
       this.scroll = new BScroll(this.$refs.scrollBox, {
         probeType: this.probeType,
-        click: this.click
+        click: this.click,
+        scrollX: this.scrollX
       })
+      console.log(this.scroll)
       if (this.listenScroll) {
         let that = this
         this.scroll.on('scroll', (pos) => {
@@ -58,6 +64,7 @@ export default {
       this.scroll && this.scroll.disable()
     },
     refresh() {
+      console.log(1)
       this.scroll && this.scroll.refresh()
     },
     scrollTo() {

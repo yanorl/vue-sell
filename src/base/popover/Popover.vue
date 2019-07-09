@@ -13,12 +13,7 @@
             <section class="line"></section>
           </section>
           <section class="supports-wrapper" v-if="seller.supports">
-            <ul>
-              <li class="support-item" v-for="(items, index) in seller.supports" :key="index">
-                <span class="icon" :class="classMap[items.type]"></span>
-                <span class="text">{{items.description}}</span>
-              </li>
-            </ul>
+            <supports-box :supports="seller.supports"></supports-box>
           </section>
           <section class="title">
             <section class="line"></section>
@@ -39,11 +34,10 @@
 
 <script>
 import Star from 'base/star/Star'
-import classMapMixin from 'common/mixins/classMapMixin'
+import SupportsBox from 'base/supports-box/SupportsBox'
 
 export default {
   name: 'popover-box',
-  mixins: [ classMapMixin ],
   props: {
     seller: {
       type: Object,
@@ -64,7 +58,8 @@ export default {
     }
   },
   components: {
-    Star
+    Star,
+    SupportsBox
   }
 }
 
@@ -118,33 +113,6 @@ export default {
       .supports-wrapper
         margin-bottom: px2rem(56)
         padding: 0 px2rem(24)
-        ul li
-          margin-bottom: px2rem(24)
-          font-size: 0
-          line-height: px2rem(24)
-          &:laste-child
-            margin-bottom: 0
-          .icon
-            display: inline-block
-            width: px2rem(32)
-            height: px2rem(32)
-            vertical-align: top
-            margin-right: px2rem(12)
-            background-size: px2rem(32) px2rem(32)
-            background-repeat: no-repeat
-            &.decrease
-              bg-image('images/decrease_2')
-            &.discount
-              bg-image('images/discount_2')
-            &.guarantee
-              bg-image('images/guarantee_2')
-            &.invoice
-              bg-image('images/invoice_2')
-            &.special
-              bg-image('images/special_2')
-          .text
-            font-size: px2rem(24)
-            line-height: px2rem(32)
       .bulletin
         padding: 0 px2rem(24)
         p
