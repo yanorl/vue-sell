@@ -104,7 +104,7 @@ export default {
           flex: 1
           top: 50%;
           transform: translate(0, -50%);
-          border-bottom: px2rem(2) solid rgba(255,255,255,0.2)
+          border-bottom: px2rem(1) solid rgba(255,255,255,0.2)
         .text
           padding: 0 px2rem(24)
           font-size: px2rem(28)

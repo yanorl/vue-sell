@@ -83,7 +83,7 @@ export default {
       padding: px2rem(16) px2rem(24)
       margin-right: px2rem(16)
       line-height: px2rem(32)
-      border-radius: px2rem(2)
+      border-radius: px2rem(1)
       font-size: px2rem(24)
       color: rgb(77, 85, 93)
       &.active

@@ -166,7 +166,7 @@ export default {
       .block
         flex: 1
         text-align: center
-        border-right: px2rem(2) solid rgba(7, 17, 27, 0.1)
+        border-right: px2rem(1) solid rgba(7, 17, 27, 0.1)
         &:last-child
           border: none
         h2

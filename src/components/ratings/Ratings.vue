@@ -115,7 +115,7 @@ export default {
         flex: 0 0  px2rem(275)
         padding: px2rem(12) 0
         width: px2rem(275)
-        border-right: px2rem(2) solid rgba(7,17,27,0.1)
+        border-right: px2rem(1) solid rgba(7,17,27,0.1)
         text-align: center
         .score
           margin-bottom: px2rem(12)
@@ -210,8 +210,8 @@ export default {
               color: rgb(0, 160, 220)
             .item
               padding: 0  px2rem(12)
-              border: px2rem(2) solid rgba(7, 17, 27, 0.1)
-              border-radius: px2rem(2)
+              border: px2rem(1) solid rgba(7, 17, 27, 0.1)
+              border-radius: px2rem(1)
               color: rgb(147, 153, 159)
               background: #fff
           .time
