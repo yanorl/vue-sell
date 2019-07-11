@@ -40,7 +40,7 @@
           <p class="content">{{seller.bulletin}}</p>
         </section>
         <section class="supports">
-          <supports-box :supports="seller.supports" :padding="true"></supports-box>
+          <supports-box :supports="seller.supports" :active="true"></supports-box>
         </section>
       </section>
       <split></split>
