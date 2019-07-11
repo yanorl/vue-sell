@@ -1,7 +1,7 @@
 <template>
   <section class="supports-box">
     <ul>
-      <li class="support-item" v-for="(items, index) in supports" :key="index" :class="{'padding': padding}">
+      <li class="support-item" v-for="(items, index) in supports" :key="index" :class="{'active': active}">
         <span class="icon" :class="classMap[items.type]"></span>
         <span class="text">{{items.description}}</span>
       </li>
@@ -19,7 +19,7 @@ export default {
       type: Array,
       default: () => []
     },
-    padding: {
+    active: {
       type: Boolean,
       default: false
     }
