@@ -40,7 +40,7 @@
           <p class="content">{{seller.bulletin}}</p>
         </section>
         <section class="supports">
-          <supports-box :supports="seller.supports" :active="true"></supports-box>
+          <support-box :supports="seller.supports" :active="true"></support-box>
         </section>
       </section>
       <split></split>
@@ -68,7 +68,7 @@
 <script>
 import Star from 'base/star/Star'
 import Split from 'base/split/Split'
-import SupportsBox from 'base/supports-box/SupportsBox'
+import SupportBox from 'base/support-box/SupportBox'
 import Scroll from 'base/scroll/Scroll'
 export default {
   name: 'seller-box',
@@ -104,7 +104,7 @@ export default {
   components: {
     Star,
     Split,
-    SupportsBox,
+    SupportBox,
     Scroll
   },
   methods: {
