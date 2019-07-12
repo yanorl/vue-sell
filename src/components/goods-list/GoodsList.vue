@@ -130,10 +130,6 @@ export default {
   },
   methods: {
     selectItem(index, event) {
-      // 自己开发的event._constructed是为true,pc浏览器没有此事件
-      if (!event._constructed) {
-        return
-      }
       this.$refs.goodsBox.scrollToElement(this.$refs.listGroup[index], 300)
     },
     scroll(pos) {
@@ -276,14 +272,14 @@ export default {
             bottom: px2rem(-15)
     .list-fixed
       position: absolute
-      top: 0
+      top: px2rem(-2px)
       left: 0
       width: 100%
       .fixed-title
         padding-left: px2rem(28)
         border-left: px2rem(4) solid #d9dde1
-        height: px2rem(52)
-        line-height: px2rem(52)
+        height: px2rem(54)
+        line-height: px2rem(54)
         font-size: px2rem(24)
         color: rgb(147,153,159)
         background: $color-background-ssss
