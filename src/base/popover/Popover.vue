@@ -13,7 +13,7 @@
             <section class="line"></section>
           </section>
           <section class="supports-wrapper" v-if="seller.supports">
-            <supports-box :supports="seller.supports"></supports-box>
+            <support-box :supports="seller.supports"></support-box>
           </section>
           <section class="title">
             <section class="line"></section>
@@ -34,7 +34,7 @@
 
 <script>
 import Star from 'base/star/Star'
-import SupportsBox from 'base/supports-box/SupportsBox'
+import SupportBox from 'base/support-box/SupportBox'
 
 export default {
   name: 'popover-box',
@@ -59,7 +59,7 @@ export default {
   },
   components: {
     Star,
-    SupportsBox
+    SupportBox
   }
 }
 
